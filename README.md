@@ -54,13 +54,13 @@ Edit `.git/hooks/commit-msg` to look like this (and make it executable).
 ```
 #!/bin/sh
 
-bin/git-lint-validators git-lint-validator:hook $1
+vendor/bin/git-lint-validators git-lint-validator:hook $1
 ```
 
 It's fairly customisable too, here are some options:
 
 ```
-$ bin/git-lint-validators help git-lint-validator:hook
+$ vendor/bin/git-lint-validators help git-lint-validator:hook
 Usage:
   git-lint-validator:hook [options] [--] <commit-message-file>
 
