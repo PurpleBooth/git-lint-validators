@@ -96,13 +96,32 @@ Help:
 
 ```bash
 
-$ git commit --am
+$ git commit
 
 
  [ERROR] Incorrectly formatted commit message
 
 
- * Please capitalise the subject line of the commit message (http://chris.beams.io/posts/git-commit/#capitalize)
+ * Please limit the body line length of the commit message to 72 characters (http://chris.beams.io/posts/git-commit/#wrap-72)
+
+Your Commit Message
+-------------------
+
+ Add commit message to output of hook
+
+ It can be frustrating if you've lost a large git commit message because it
+ doesn't match the style guide. This will add a little message including
+ your commit details
+ # Please enter the commit message for your changes. Lines starting
+ # with '#' will be ignored, and an empty message aborts the commit.
+ # On branch added-original-commit-message-to-hook
+ # Changes to be committed:
+ #	modified:   src/PurpleBooth/GitLintValidators/Command/Hook.php
+ #
+
+
+
+ [WARNING] A commit has not been created
 
 ```
 
