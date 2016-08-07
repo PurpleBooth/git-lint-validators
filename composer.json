@@ -1,6 +1,6 @@
 {
   "name": "purplebooth/git-lint-validators",
-  "description": "Lint github commits and update their status",
+  "description": "Lint git commits",
   "type": "project",
   "require": {
     "php": "^7.0.0",
