@@ -178,6 +178,6 @@ COMMIT;
         $this->beConstructedWith($commitMessage);
         $this->addStatus($status1);
         $this->addStatus($status2);
-        $this->getStatusCount()->shouldReturn(2);
+        $this->getStatuses()->shouldReturn([$status1, $status2]);
     }
 }

@@ -21,7 +21,7 @@ class MessageImplementation implements Message
     /**
      * @var Status[]
      */
-    private $statuses;
+    private $statuses = [];
 
     /**
      * Message constructor.
@@ -137,21 +137,11 @@ class MessageImplementation implements Message
     }
 
     /**
-     * Get the number of statuses
-     *
-     * @return int
-     */
-    public function getStatusCount() : int
-    {
-        return count($this->getStatuses());
-    }
-
-    /**
      * Get the status associated with this message
      *
      * @return Status[]
      */
-    protected function getStatuses()
+    public function getStatuses() : array
     {
         return $this->statuses;
     }

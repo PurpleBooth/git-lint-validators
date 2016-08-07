@@ -27,16 +27,7 @@ interface Status
     public function getWeight() : int;
 
     /**
-     * The GitHub equivalent of this state
-     *
-     * Can be one of pending, success, error, or failure.
-     *
-     * @return string
-     */
-    public function getState() : string;
-
-    /**
-     * Is true if the status on GitHub would be success
+     * Is true if the status is one that should not be taken as indicative of a incorrectly formatted message
      *
      * @return boolean
      */

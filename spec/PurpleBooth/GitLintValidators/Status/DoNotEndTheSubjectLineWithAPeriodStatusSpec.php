@@ -18,13 +18,6 @@ class DoNotEndTheSubjectLineWithAPeriodStatusSpec extends ObjectBehavior
         $this->getWeight()->shouldReturn(100);
     }
 
-
-    function it_has_success_state()
-    {
-        $this->getState()->shouldReturn('failure');
-    }
-
-
     function it_has_message()
     {
         $this->getMessage()->shouldReturn(
@@ -32,12 +25,10 @@ class DoNotEndTheSubjectLineWithAPeriodStatusSpec extends ObjectBehavior
         );
     }
 
-
     function it_is_a_status()
     {
         $this->shouldImplement(Status::class);
     }
-
 
     function it_is_a_good_status()
     {

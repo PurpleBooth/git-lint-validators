@@ -43,33 +43,44 @@ composer require PurpleBooth/git-lint-validators
 
 ### Tool
 
-You can try out this library by using it as a tool.
+You can try out this library by using it as a [git commit hook].
+
+[git commit hook]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
 
 #### Usage
 
+Edit `.git/hooks/commit-msg` to look like this (and make it executable).
+
+```
+#!/bin/sh
+
+bin/git-lint-validators git-lint-validator:hook $1
 ```
 
-Billies-MacBook-Pro-2:git-github-lint billie$ bin/git-github-lint help git-github-lint:pr
+It's fairly customisable too, here are some options:
+
+```
+$ bin/git-lint-validators help git-lint-validator:hook
 Usage:
-  git-github-lint:pr [options] [--] <github-username> <github-repository> <pull-request-id>
+  git-lint-validator:hook [options] [--] <commit-message-file>
 
 Arguments:
-  github-username       GitHub Username
-  github-repository     GitHub Repository
-  pull-request-id       The ID of the pull request
+  commit-message-file                Path to commit message file
 
 Options:
-  -t, --token=TOKEN     The token to authenticate to the API with.
-  -h, --help            Display this help message
-  -q, --quiet           Do not output any message
-  -V, --version         Display this application version
-      --ansi            Force ANSI output
-      --no-ansi         Disable ANSI output
-  -n, --no-interaction  Do not ask any interactive question
-  -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+  -i, --ignore[=IGNORE]              Ignore a commit message that matches this pattern and don't test it [default: ["/^Merge branch/"]] (multiple values allowed)
+  -c, --comment-char[=COMMENT-CHAR]  Ignore lines that are prefixed with this character [default: "#"]
+  -h, --help                         Display this help message
+  -q, --quiet                        Do not output any message
+  -V, --version                      Display this application version
+      --ansi                         Force ANSI output
+      --no-ansi                      Disable ANSI output
+  -n, --no-interaction               Do not ask any interactive question
+  -v|vv|vvv, --verbose               Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 
 Help:
- Evaluates a the commits in a pull request and checks that their messages match the style advised by Git. It will then update the "status" in github (that little dot next to the commits).
+ Check your commit messages to ensure they follow the guidelines
+ in your add this to your .git/hooks/commit-msg file
 
 
  Here are some good articles on commit message style:
@@ -85,40 +96,37 @@ Help:
 
 ```bash
 
-$ php vendor/bin/git-github-lint git-github-lint:pr \
-                                 -t my-token \
-                                 PurpleBooth \
-                                 git-github-lint \
-                                 3
-
-git-github-lint:pr
-==================
-
- // Analysing PR PurpleBooth/git-github-lint#3
+$ git commit --am
 
 
- [OK] Finished!
+ [ERROR] Incorrectly formatted commit message
+
+
+ * Please capitalise the subject line of the commit message (http://chris.beams.io/posts/git-commit/#capitalize)
 
 ```
-
-You can look at the [pull requests on this repo] to see what the effect
-is like in person.
-
-[pull requests on this repo]: https://github.com/PurpleBooth/git-github-lint/pull/3
 
 ### Library
 
 You can use the whole library
 
-```php
-<?php
+```
+$validatorFactory = new ValidatorFactoryImplementation();
+$validators       = $validatorFactory->getMessageValidator();
 
-$gitHubClient = new \Github\Client()
 
-/** @var GitHubLint $gitHubLint **/
-$gitHubLint = new GitHubLintImplementation($gitHubClient);
-$gitHubLint->analyse('PurpleBooth', 'git-github-lint', 3);
-// -> The commits on your PR should now be updated with a status
+$message
+    = <<<MESSAGE
+This is an example title
+
+This is a message body. This is another part of the body.
+MESSAGE;
+
+$exampleMessage = new MessageImplementation("exampleSha", $message);
+
+$validators->validate($exampleMessage);
+// -> Message Object will now have a Status objects set on them
+
 ```
 
 Alternatively you could use the validators alone
@@ -130,10 +138,6 @@ new ValidateMessageImplementation(
     [
         new CapitalizeTheSubjectLineValidator(),
         new DoNotEndTheSubjectLineWithAPeriodValidator(),
-        new LimitTheBodyWrapLengthTo72CharactersValidator(),
-        new LimitTheTitleLengthTo69CharactersValidator(),
-        new SeparateSubjectFromBodyWithABlankLineValidator(),
-        new SoftLimitTheTitleLengthTo50CharactersValidator(),
     ]
 );
 

@@ -95,4 +95,4 @@ build:
     tests:
         override:
             -
-                command: 'vendor/bin/phpspec run'
+                command: 'vendor/bin/phpspec run -n'

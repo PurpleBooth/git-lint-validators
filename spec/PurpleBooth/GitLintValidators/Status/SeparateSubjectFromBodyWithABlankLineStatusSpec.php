@@ -18,13 +18,6 @@ class SeparateSubjectFromBodyWithABlankLineStatusSpec extends ObjectBehavior
         $this->getWeight()->shouldReturn(100);
     }
 
-
-    function it_has_success_state()
-    {
-        $this->getState()->shouldReturn('failure');
-    }
-
-
     function it_has_message()
     {
         $this->getMessage()->shouldReturn(

@@ -18,11 +18,6 @@ class SoftLimitTheTitleLengthTo50CharactersStatusSpec extends ObjectBehavior
         $this->getWeight()->shouldReturn(50);
     }
 
-    function it_has_success_state()
-    {
-        $this->getState()->shouldReturn('success');
-    }
-
     function it_has_message()
     {
         $this->getMessage()->shouldReturn(

@@ -63,9 +63,9 @@ interface Message
     public function addStatus(Status $status);
 
     /**
-     * Get the number of statuses
+     * Get the statuses associated with this message
      *
-     * @return int
+     * @return Status[]
      */
-    public function getStatusCount() : int;
+    public function getStatuses() : array;
 }

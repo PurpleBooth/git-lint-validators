@@ -38,25 +38,13 @@ class LimitTheTitleLengthTo69CharactersStatus implements Status
     }
 
     /**
-     * Is true if the status on GitHub would be success
+     * Is true if the status is one that should not be taken as indicative of a incorrectly formatted message
      *
      * @return boolean
      */
     public function isPositive() : bool
     {
-        return $this->getState() == Status::STATE_SUCCESS;
-    }
-
-    /**
-     * The GitHub equivalent of this state
-     *
-     * Can be one of pending, success, error, or failure.
-     *
-     * @return string
-     */
-    public function getState() : string
-    {
-        return Status::STATE_FAILURE;
+        return false;
     }
 
     /**
