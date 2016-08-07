@@ -131,6 +131,10 @@ class Hook extends Command
         $styleHelper->error("Incorrectly formatted commit message");
         $styleHelper->listing($statusList);
 
+        $styleHelper->section("Your Commit Message");
+        $styleHelper->block($commitMessage);
+        $styleHelper->warning("A commit has not been created");
+
         return 1;
     }
 }
