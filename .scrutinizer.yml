@@ -99,3 +99,8 @@ build:
             -
                 command: 'vendor/bin/phpspec run -n'
 
+build_failure_conditions:
+    - 'elements.rating(<= D).exists'
+    - 'issues.new.exists'
+    - 'project.metric("scrutinizer.quality", < 9)'
+    - 'project.metric("scrutinizer.quality", < -0.5)'
