@@ -95,4 +95,7 @@ build:
     tests:
         override:
             -
+                command: 'find src spec -name "*.php" -print0 | xargs -0 -n1 -P8 php -l'
+            -
                 command: 'vendor/bin/phpspec run -n'
+
