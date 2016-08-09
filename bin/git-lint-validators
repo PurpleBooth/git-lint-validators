@@ -7,7 +7,7 @@ use Symfony\Component\Console\Application;
 require __DIR__ . '/../vendor/autoload.php';
 
 
-$application = new Application($argv[0], '0.1.0');
+$application = new Application($argv[0], '1.1.0');
 
 $application->add(new Hook());
 
