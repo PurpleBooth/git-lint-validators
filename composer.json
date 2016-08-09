@@ -18,6 +18,11 @@
     "phpspec/phpspec": "^3.0",
     "squizlabs/php_codesniffer": "*"
   },
+  "scripts": {
+    "install-git-hook": [
+      "PurpleBooth\\GitLintValidators\\Composer\\Scripts::installGitMessageHook"
+    ]
+  },
   "autoload": {
     "psr-0": {
       "PurpleBooth\\GitLintValidators\\": "src/"
