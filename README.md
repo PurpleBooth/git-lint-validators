@@ -33,11 +33,8 @@ You'll need to install:
 ### Installing
 
 ```bash
-
-composer require PurpleBooth/git-lint-validators
-
+composer require --dev PurpleBooth/git-lint-validators
 ```
-
 
 ## Usage
 
@@ -94,7 +91,7 @@ Help:
 
 #### Output While Running
 
-```bash
+```
 
 $ git commit
 
@@ -129,10 +126,11 @@ Your Commit Message
 
 You can use the whole library
 
-```
+```php
+<?php
+
 $validatorFactory = new ValidatorFactoryImplementation();
 $validators       = $validatorFactory->getMessageValidator();
-
 
 $message
     = <<<MESSAGE
@@ -145,7 +143,6 @@ $exampleMessage = new MessageImplementation("exampleSha", $message);
 
 $validators->validate($exampleMessage);
 // -> Message Object will now have a Status objects set on them
-
 ```
 
 Alternatively you could use the validators alone
@@ -159,7 +156,6 @@ new ValidateMessageImplementation(
         new DoNotEndTheSubjectLineWithAPeriodValidator(),
     ]
 );
-
 
 $message
     = <<<MESSAGE
@@ -181,8 +177,6 @@ indicating a BC break.
 
 ## Running the tests
 
-To run the tests for coding style
-
 First checkout the library, then run
 
 ```bash
@@ -191,7 +185,7 @@ composer install
 
 ### Coding Style
 
-We follow PSR2, and also enforce PHPDocs on all functions
+We follow PSR2, and also enforce PHPDocs on all functions. To run the tests for coding style violations
 
 ```bash
 vendor/bin/phpcs -p --standard=psr2 src/ spec/
@@ -199,12 +193,11 @@ vendor/bin/phpcs -p --standard=psr2 src/ spec/
 
 ### Unit tests
 
-We use PHPSpec for unit tests
+We use PHPSpec for unit tests. To run the unit tests
 
 ```bash
 vendor/bin/phpspec run
 ```
-
 
 ## Contributing
 
@@ -222,4 +215,4 @@ See the list of [contributors](https://github.com/purplebooth/git-lint-validator
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
