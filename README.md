@@ -44,14 +44,13 @@ You can try out this library by using it as a [git commit hook].
 
 [git commit hook]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
 
-#### Usage
+#### Git hook installation
 
-Edit `.git/hooks/commit-msg` to look like this (and make it executable).
+Use the `install-git-hook` Composer script to install the hook. An existing hook is
+backed to `.git/hooks/commit-msg.bak`.
 
-```
-#!/bin/sh
-
-vendor/bin/git-lint-validators git-lint-validator:hook $1
+```bash
+composer install-git-hook
 ```
 
 It's fairly customisable too, here are some options:
