@@ -6,6 +6,24 @@ use Composer\Script\Event;
 
 class Scripts
 {
+    const BACKUP_EXTENSION = '.bak';
+    const GIT_PATH         = '.git';
+    const HOOKS_PATH       = 'hooks';
+    const HOOK_FILENAME    = 'commit-msg';
+
+    /**
+     * Default Permissions (Copied from example hooks)
+     *
+     * User: Read, Write, Execute
+     * Group: Read, Execute
+     * Other: Execute
+     */
+    const EXECUTABLE_PERMISSIONS = 0751;
+    const HOOK_CONTENTS          = <<<CONTENT
+#!/bin/sh
+
+vendor/bin/git-lint-validators git-lint-validator:hook $1
+CONTENT;
 
     /**
      * Installs and activates the Git commit message
@@ -14,61 +32,57 @@ class Scripts
      *
      *
      * @param  Event $event The script event.
+     *
      * @return boolean
      */
     public static function installGitMessageHook(Event $event)
     {
-        $gitHookContent = <<<CONTENT
-#!/bin/sh
+        $hookContent = self::HOOK_CONTENTS;
+        $inputOutput = $event->getIO();
+        $question    = "Do you want to install and activate the Git ";
+        $question   .= "commit message hook? ";
 
-vendor/bin/git-lint-validators git-lint-validator:hook $1
-CONTENT;
+        if ($inputOutput->askConfirmation($question, false)) {
+            $gitDirectory = implode(DIRECTORY_SEPARATOR, [dirname(__DIR__, 4), self::GIT_PATH]);
 
-        $io = $event->getIO();
-        $question = "Do you want to install and activate the Git "
-            . "commit message hook? ";
-
-        if ($io->askConfirmation($question, false)) {
-            $gitDirectory = dirname(__DIR__, 4) . DIRECTORY_SEPARATOR . '.git';
             if (!is_dir($gitDirectory)) {
-                $errorMessage = "Couldn't locate the .git directory. "
-                    . "Aborting the Git hook installation.";
-                $io->error($errorMessage);
+                $errorMessage  = "Couldn't locate the .git directory. ";
+                $errorMessage .= "Aborting the Git hook installation.";
+
+                $inputOutput->error($errorMessage);
 
                 return false;
             }
 
-            $gitCommitMessageHookFile = $gitDirectory
-                . DIRECTORY_SEPARATOR . 'hooks'
-                . DIRECTORY_SEPARATOR . 'commit-msg';
+            $hookFile         = implode(DIRECTORY_SEPARATOR, [$gitDirectory, self::HOOKS_PATH, self::HOOK_FILENAME]);
+            $existingHookFile = false;
 
-            $backedExistingGitCommitMessageHookFile = false;
-            if (file_exists($gitCommitMessageHookFile)) {
-                $backedExistingGitCommitMessageHookFile = copy(
-                    $gitCommitMessageHookFile,
-                    $gitCommitMessageHookFile . '.bak'
+            if (file_exists($hookFile)) {
+                $existingHookFile = copy(
+                    $hookFile,
+                    $hookFile . self::BACKUP_EXTENSION
                 );
             }
 
-            file_put_contents($gitCommitMessageHookFile, $gitHookContent);
-            chmod($gitCommitMessageHookFile, 0751);
+            file_put_contents($hookFile, $hookContent);
+            chmod($hookFile, self::EXECUTABLE_PERMISSIONS);
 
-            $io->write("Installed and activated the Git commit message hook.");
+            $inputOutput->write("Installed and activated the Git commit message hook.");
 
-            if ($backedExistingGitCommitMessageHookFile) {
-                $io->write("Backed previous Git commit message hook.");
+            if ($existingHookFile) {
+                $inputOutput->write("Backed previous Git commit message hook.");
             }
 
-            if ($io->isVerbose()) {
-                $io->write("Wrote");
-                $io->write("<comment>$gitHookContent</comment>");
-                $io->write("into <info>$gitCommitMessageHookFile</info> and made it executable.");
+            if ($inputOutput->isVerbose()) {
+                $inputOutput->write("Wrote");
+                $inputOutput->write("<comment>$hookContent</comment>");
+                $inputOutput->write("into <info>$hookFile</info> and made it executable.");
             }
 
             return true;
         }
 
-        $io->write("Aborted installation and activation of the Git commit message hook.");
+        $inputOutput->write("Aborted installation and activation of the Git commit message hook.");
 
         return false;
     }

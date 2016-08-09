@@ -8,4 +8,5 @@ before_script:
   - composer install
 
 script:
+  - find src spec -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
   - vendor/bin/phpspec run

@@ -22,8 +22,8 @@ checks:
         newline_at_end_of_file: true
         naming_conventions:
             local_variable: '^[a-z][a-zA-Z0-9]*$'
-            abstract_class_name: ^Abstract|Factory$
-            utility_class_name: 'Utils?$'
+            abstract_class_name: '^Abstract[A-Z][A-Za-z0-9]*$'
+            utility_class_name: '^[A-Z][A-Z0-9a-z]*$'
             constant_name: '^[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*$'
             property_name: '^[a-z][a-zA-Z0-9]*$'
             method_name: '^(?:[a-z]|__)[a-zA-Z0-9]*$'
@@ -95,4 +95,12 @@ build:
     tests:
         override:
             -
+                command: 'find src spec -name "*.php" -print0 | xargs -0 -n1 -P8 php -l'
+            -
                 command: 'vendor/bin/phpspec run -n'
+
+build_failure_conditions:
+    - 'elements.rating(<= D).exists'
+    - 'issues.new.exists'
+    - 'project.metric("scrutinizer.quality", < 9)'
+    - 'project.metric("scrutinizer.quality", < -0.5)'
