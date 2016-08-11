@@ -16,7 +16,8 @@
   ],
   "require-dev": {
     "phpspec/phpspec": "^3.0",
-    "squizlabs/php_codesniffer": "*"
+    "squizlabs/php_codesniffer": "*",
+    "composer/composer": "^1.2"
   },
   "scripts": {
     "install-git-hook": [
