@@ -30,7 +30,6 @@ CONTENT;
      * hook when confirmed by the user. An existing hook
      * is backed with the .bak extension.
      *
-     *
      * @param  Event $event The script event.
      *
      * @return boolean
