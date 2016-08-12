@@ -9,4 +9,4 @@ We welcome all contributions, however here are some guidelines:
 * You have added new tests for new functionality if you are adding it.
 * You are following our [code of conduct][coc]
 
-[coc]: code_of_conduct.md
+[coc]: CODE_OF_CONDUCT.md
