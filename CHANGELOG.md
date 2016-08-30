@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.2.0] - 2016-mm-dd
+### Added
+
+- A composer script to install and configure a git commit message template (Thanks @raphaelstolt)
+
 ## [1.1.0] - 2016-08-09
 ### Added
 
