@@ -22,6 +22,9 @@
   "scripts": {
     "install-git-hook": [
       "PurpleBooth\\GitLintValidators\\Composer\\Scripts::installGitMessageHook"
+    ],
+    "install-git-commit-message-template": [
+      "PurpleBooth\\GitLintValidators\\Composer\\Scripts::installGitCommitMessageTemplate"
     ]
   },
   "autoload": {
