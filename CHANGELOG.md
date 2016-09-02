@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.2.0] - 2016-mm-dd
+## [1.2.0] - 2016-09-02
 ### Added
 
 - A composer script to install and configure a git commit message template (Thanks @raphaelstolt)
@@ -43,6 +43,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Everything, initial release
 
+[1.2.0]: https://github.com/PurpleBooth/git-lint-validators/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/PurpleBooth/git-lint-validators/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/PurpleBooth/git-lint-validators/compare/v0.1.0...v1.0.0
 [0.1.0]: https://github.com/PurpleBooth/git-lint-validators/compare/855a4e28aef6ed2588d09d00c0f8885396625a80...v0.1.0
