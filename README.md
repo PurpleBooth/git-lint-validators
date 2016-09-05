@@ -88,18 +88,6 @@ Help:
 
 ```
 
-#### Git commit message template installation
-
-Use the `install-git-commit-message-template` Composer script to install and configure a [commit message template] following the [rules of Chris Beams].
-The commit message template is written to `.git/.gitmessage` and will than be used when issuing a `git commit` w/o the message option.
-
-```bash
-composer install-git-commit-message-template
-```
-
-[commit message template]: https://robots.thoughtbot.com/better-commit-messages-with-a-gitmessage-template
-[rules of Chris Beams]: http://chris.beams.io/posts/git-commit/#seven-rules
-
 #### Output While Running
 
 ```
@@ -132,6 +120,18 @@ Your Commit Message
  [WARNING] A commit has not been created
 
 ```
+
+#### Git commit message template installation
+
+Use the `install-git-commit-message-template` Composer script to install and configure a [commit message template] following the [rules of Chris Beams].
+The commit message template is written to `.git/.gitmessage` and will than be used when issuing a `git commit` w/o the message option.
+
+```bash
+composer install-git-commit-message-template
+```
+
+[commit message template]: https://robots.thoughtbot.com/better-commit-messages-with-a-gitmessage-template
+[rules of Chris Beams]: http://chris.beams.io/posts/git-commit/#seven-rules
 
 ### Library
 
