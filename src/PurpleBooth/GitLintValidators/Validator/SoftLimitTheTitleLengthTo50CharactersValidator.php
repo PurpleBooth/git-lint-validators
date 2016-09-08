@@ -1,26 +1,23 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace PurpleBooth\GitLintValidators\Validator;
 
 use PurpleBooth\GitLintValidators\Message;
 use PurpleBooth\GitLintValidators\Status\SoftLimitTheTitleLengthTo50CharactersStatus;
-use PurpleBooth\GitLintValidators\Status\SuccessStatus;
 
 /**
- * This validator will check the subject is not longer than 50 characters
+ * This validator will check the subject is not longer than 50 characters.
  *
  * @see     SoftLimitTheTitleLengthTo50CharactersStatus
- *
- * @package PurpleBooth\GitLintValidators\Validator
  */
 class SoftLimitTheTitleLengthTo50CharactersValidator implements Validator
 {
     const CHARACTER_LIMIT = 50;
 
     /**
-     * Check if a message passes a specific test, and return a status that identifies if it is or isn't
+     * Check if a message passes a specific test, and return a status that identifies if it is or isn't.
      *
      * @param Message $message
      */

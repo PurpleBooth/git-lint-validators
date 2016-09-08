@@ -1,15 +1,15 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace PurpleBooth\GitLintValidators\Status;
 
 use PurpleBooth\GitLintValidators\Validator\SoftLimitTheTitleLengthTo50CharactersValidator;
 
 /**
- * This is the status returned when the SoftLimitTheTitleLengthTo50CharactersValidator identifies a problem
+ * This is the status returned when the SoftLimitTheTitleLengthTo50CharactersValidator identifies a problem.
  *
  * @see     SoftLimitTheTitleLengthTo50CharactersValidator
- *
- * @package PurpleBooth\GitLintValidators\Status
  */
 class SoftLimitTheTitleLengthTo50CharactersStatus implements Status
 {
@@ -26,7 +26,7 @@ class SoftLimitTheTitleLengthTo50CharactersStatus implements Status
     }
 
     /**
-     * A human readable message that describes this state
+     * A human readable message that describes this state.
      *
      * This will be displayed to the user via the GitHub state
      *
@@ -38,9 +38,9 @@ class SoftLimitTheTitleLengthTo50CharactersStatus implements Status
     }
 
     /**
-     * Is true if the status is one that should not be taken as indicative of a incorrectly formatted message
+     * Is true if the status is one that should not be taken as indicative of a incorrectly formatted message.
      *
-     * @return boolean
+     * @return bool
      */
     public function isPositive() : bool
     {
@@ -48,7 +48,7 @@ class SoftLimitTheTitleLengthTo50CharactersStatus implements Status
     }
 
     /**
-     * The GitHub equivalent of this state
+     * The GitHub equivalent of this state.
      *
      * Can be one of pending, success, error, or failure.
      *
@@ -60,12 +60,12 @@ class SoftLimitTheTitleLengthTo50CharactersStatus implements Status
     }
 
     /**
-     * Get a URL with further explanation about this commit message status
+     * Get a URL with further explanation about this commit message status.
      *
      * @return string
      */
     public function getDetailsUrl() : string
     {
-        return "http://chris.beams.io/posts/git-commit/#limit-50";
+        return 'http://chris.beams.io/posts/git-commit/#limit-50';
     }
 }
