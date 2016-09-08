@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace PurpleBooth\GitLintValidators;
 
@@ -12,14 +12,12 @@ use PurpleBooth\GitLintValidators\Validator\SeparateSubjectFromBodyWithABlankLin
 use PurpleBooth\GitLintValidators\Validator\SoftLimitTheTitleLengthTo50CharactersValidator;
 
 /**
- * Build a ready ValidateMessage
- *
- * @package PurpleBooth\GitLintValidators
+ * Build a ready ValidateMessage.
  */
 class ValidatorFactoryImplementation implements ValidatorFactory
 {
     /**
-     * Get a message validator set-up with all the validators
+     * Get a message validator set-up with all the validators.
      *
      * @return ValidateMessage
      */

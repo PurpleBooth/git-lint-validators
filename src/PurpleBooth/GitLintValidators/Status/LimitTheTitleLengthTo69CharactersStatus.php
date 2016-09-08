@@ -1,15 +1,15 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 namespace PurpleBooth\GitLintValidators\Status;
 
 use PurpleBooth\GitLintValidators\Validator\LimitTheTitleLengthTo69CharactersValidator;
 
 /**
- * This is the status returned when the LimitTheTitleLengthTo69CharactersValidator identifies a problem
+ * This is the status returned when the LimitTheTitleLengthTo69CharactersValidator identifies a problem.
  *
  * @see     LimitTheTitleLengthTo69CharactersValidator
- *
- * @package PurpleBooth\GitLintValidators\Status
  */
 class LimitTheTitleLengthTo69CharactersStatus implements Status
 {
@@ -26,7 +26,7 @@ class LimitTheTitleLengthTo69CharactersStatus implements Status
     }
 
     /**
-     * A human readable message that describes this state
+     * A human readable message that describes this state.
      *
      * This will be displayed to the user via the GitHub state
      *
@@ -38,9 +38,9 @@ class LimitTheTitleLengthTo69CharactersStatus implements Status
     }
 
     /**
-     * Is true if the status is one that should not be taken as indicative of a incorrectly formatted message
+     * Is true if the status is one that should not be taken as indicative of a incorrectly formatted message.
      *
-     * @return boolean
+     * @return bool
      */
     public function isPositive() : bool
     {
@@ -48,12 +48,12 @@ class LimitTheTitleLengthTo69CharactersStatus implements Status
     }
 
     /**
-     * Get a URL with further explanation about this commit message status
+     * Get a URL with further explanation about this commit message status.
      *
      * @return string
      */
     public function getDetailsUrl() : string
     {
-        return "http://chris.beams.io/posts/git-commit/#limit-50";
+        return 'http://chris.beams.io/posts/git-commit/#limit-50';
     }
 }

@@ -1,24 +1,21 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace PurpleBooth\GitLintValidators\Validator;
 
 use PurpleBooth\GitLintValidators\Message;
 use PurpleBooth\GitLintValidators\Status\DoNotEndTheSubjectLineWithAPeriodStatus;
-use PurpleBooth\GitLintValidators\Status\SuccessStatus;
 
 /**
- * This validator will check if the subject line does not have a full stop at the end
+ * This validator will check if the subject line does not have a full stop at the end.
  *
  * @see     DoNotEndTheSubjectLineWithAPeriodStatus
- *
- * @package PurpleBooth\GitLintValidators\Validator
  */
 class DoNotEndTheSubjectLineWithAPeriodValidator implements Validator
 {
     /**
-     * Check if a message passes a specific test, and return a status that identifies if it is or isn't
+     * Check if a message passes a specific test, and return a status that identifies if it is or isn't.
      *
      * @param Message $message
      */

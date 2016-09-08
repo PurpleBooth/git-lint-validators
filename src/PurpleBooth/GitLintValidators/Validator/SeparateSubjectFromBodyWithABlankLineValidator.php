@@ -1,24 +1,21 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace PurpleBooth\GitLintValidators\Validator;
 
 use PurpleBooth\GitLintValidators\Message;
 use PurpleBooth\GitLintValidators\Status\SeparateSubjectFromBodyWithABlankLineStatus;
-use PurpleBooth\GitLintValidators\Status\SuccessStatus;
 
 /**
- * This validator will check the subject and the body have a blank line in between te two
+ * This validator will check the subject and the body have a blank line in between te two.
  *
  * @see     SeparateSubjectFromBodyWithABlankLineStatus
- *
- * @package PurpleBooth\GitLintValidators\Validator
  */
 class SeparateSubjectFromBodyWithABlankLineValidator implements Validator
 {
     /**
-     * Check if a message passes a specific test, and return a status that identifies if it is or isn't
+     * Check if a message passes a specific test, and return a status that identifies if it is or isn't.
      *
      * @param Message $message
      */

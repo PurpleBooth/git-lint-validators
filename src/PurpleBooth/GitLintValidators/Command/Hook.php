@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace PurpleBooth\GitLintValidators\Command;
 
@@ -15,16 +16,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
- * A command that allows you to try out the library
- *
- * @package PurpleBooth\GitGitHubLint\Command
+ * A command that allows you to try out the library.
  */
 class Hook extends Command
 {
-    const COMMAND_NAME                 = 'git-lint-validator:hook';
+    const COMMAND_NAME = 'git-lint-validator:hook';
     const ARGUMENT_COMMIT_MESSAGE_FILE = 'commit-message-file';
-    const OPTION_COMMENT_CHAR          = 'comment-char';
-    const OPTION_IGNORE                = 'ignore';
+    const OPTION_COMMENT_CHAR = 'comment-char';
+    const OPTION_IGNORE = 'ignore';
 
     /**
      * Configures the current command.
@@ -32,9 +31,9 @@ class Hook extends Command
     protected function configure()
     {
         $this->setName(self::COMMAND_NAME);
-        $this->setDescription("Check the style of commit messages");
+        $this->setDescription('Check the style of commit messages');
 
-        $help  = '';
+        $help = '';
         $help .= "Check your commit messages to ensure they follow the guidelines\n";
         $help .= "in your add this to your .git/hooks/commit-msg file\n";
         $help .= "\n";
@@ -90,13 +89,13 @@ class Hook extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $styleHelper      = new SymfonyStyle($input, $output);
+        $styleHelper = new SymfonyStyle($input, $output);
         $validatorFactory = new ValidatorFactoryImplementation();
-        $validators       = $validatorFactory->getMessageValidator();
+        $validators = $validatorFactory->getMessageValidator();
 
-        $commitMessage    = file_get_contents($input->getArgument(self::ARGUMENT_COMMIT_MESSAGE_FILE));
+        $commitMessage = file_get_contents($input->getArgument(self::ARGUMENT_COMMIT_MESSAGE_FILE));
         $commentCharacter = $input->getOption(self::OPTION_COMMENT_CHAR);
-        $ignorePatterns   = $input->getOption(self::OPTION_IGNORE);
+        $ignorePatterns = $input->getOption(self::OPTION_IGNORE);
 
         foreach ($ignorePatterns as $ignorePattern) {
             if (preg_match($ignorePattern, $commitMessage)) {
@@ -104,8 +103,8 @@ class Hook extends Command
             }
         }
 
-        $safeCommitMessage = preg_replace("/" . preg_quote($commentCharacter) . ".*/", "", $commitMessage);
-        $message           = new MessageImplementation($safeCommitMessage);
+        $safeCommitMessage = preg_replace('/'.preg_quote($commentCharacter).'.*/', '', $commitMessage);
+        $message = new MessageImplementation($safeCommitMessage);
 
         $validators->validate($message);
 
@@ -118,7 +117,7 @@ class Hook extends Command
 
         /** @var Status $status */
         foreach ($message->getStatuses() as $status) {
-            $statusList[] = $status->getMessage() . " (" . $status->getDetailsUrl() . ")";
+            $statusList[] = $status->getMessage().' ('.$status->getDetailsUrl().')';
 
             $isPositive = $status->isPositive() && $isPositive;
         }
@@ -128,12 +127,12 @@ class Hook extends Command
             return 0;
         }
 
-        $styleHelper->error("Incorrectly formatted commit message");
+        $styleHelper->error('Incorrectly formatted commit message');
         $styleHelper->listing($statusList);
 
-        $styleHelper->section("Your Commit Message");
+        $styleHelper->section('Your Commit Message');
         $styleHelper->block($commitMessage);
-        $styleHelper->warning("A commit has not been created");
+        $styleHelper->warning('A commit has not been created');
 
         return 1;
     }
