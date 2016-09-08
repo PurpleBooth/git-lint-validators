@@ -27,4 +27,4 @@ script:
   - phpdbg -qrr vendor/bin/phpspec run
 
 after_success:
-  - travis_retry php bin/coveralls
+  - travis_retry php vendor/bin/coveralls
