@@ -2,6 +2,7 @@ language: php
 
 php:
   - '7.0'
+  - '7.1'
   - nightly
 
 matrix:
@@ -13,7 +14,6 @@ matrix:
 install:
     - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction
 
-
 script:
   - find src spec -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
-  - vendor/bin/phpspec run
+  - phpdbg -qrr vendor/bin/phpspec run
