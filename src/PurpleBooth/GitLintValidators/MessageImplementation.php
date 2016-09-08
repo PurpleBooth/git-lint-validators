@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace PurpleBooth\GitLintValidators;
 
 use PurpleBooth\GitLintValidators\Status\Status;
 
 /**
- * A commit message
- *
- * @package PurpleBooth\GitLintValidators
+ * A commit message.
  */
 class MessageImplementation implements Message
 {
@@ -34,7 +32,7 @@ class MessageImplementation implements Message
     }
 
     /**
-     * Is the title capitalised
+     * Is the title capitalised.
      *
      * @return bool
      */
@@ -44,11 +42,12 @@ class MessageImplementation implements Message
             return false;
         }
 
-        return strtoupper($this->commitMessage[0]){0} === $this->commitMessage[0]{0};
+        return strtoupper($this->commitMessage[0]){0}
+        === $this->commitMessage[0][0];
     }
 
     /**
-     * Get the title length
+     * Get the title length.
      *
      * @return int
      */
@@ -58,7 +57,7 @@ class MessageImplementation implements Message
     }
 
     /**
-     * Title ends with a full stop
+     * Title ends with a full stop.
      *
      * @return bool
      */
@@ -70,11 +69,11 @@ class MessageImplementation implements Message
 
         $lastCharacter = trim($this->commitMessage[0]){$this->getTitleLength() - 1};
 
-        return $lastCharacter == ".";
+        return $lastCharacter == '.';
     }
 
     /**
-     * Has a gap after the title
+     * Has a gap after the title.
      *
      * @return bool
      */
@@ -84,11 +83,11 @@ class MessageImplementation implements Message
             return false;
         }
 
-        return $this->commitMessage[1] == "";
+        return $this->commitMessage[1] == '';
     }
 
     /**
-     * Has this message got a body
+     * Has this message got a body.
      *
      * @return bool
      */
@@ -104,7 +103,7 @@ class MessageImplementation implements Message
     }
 
     /**
-     * The length at which the message wraps
+     * The length at which the message wraps.
      *
      * @return int
      */
@@ -114,7 +113,7 @@ class MessageImplementation implements Message
             return 0;
         }
 
-        $body              = array_slice($this->commitMessage, 2);
+        $body = array_slice($this->commitMessage, 2);
         $longestLineLength = 0;
 
         foreach ($body as $line) {
@@ -127,7 +126,7 @@ class MessageImplementation implements Message
     }
 
     /**
-     * Associate a status with this message
+     * Associate a status with this message.
      *
      * @param Status $status
      */
@@ -137,7 +136,7 @@ class MessageImplementation implements Message
     }
 
     /**
-     * Get the status associated with this message
+     * Get the status associated with this message.
      *
      * @return Status[]
      */

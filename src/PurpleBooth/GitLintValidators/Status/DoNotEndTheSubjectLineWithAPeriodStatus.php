@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace PurpleBooth\GitLintValidators\Status;
 
 use PurpleBooth\GitLintValidators\Validator\DoNotEndTheSubjectLineWithAPeriodValidator;
 
 /**
- * This is the status returned when the DoNotEndTheSubjectLineWithAPeriodValidator identifies a problem
+ * This is the status returned when the DoNotEndTheSubjectLineWithAPeriodValidator identifies a problem.
  *
  * @see     DoNotEndTheSubjectLineWithAPeriodValidator
- *
- * @package PurpleBooth\GitLintValidators\Status
  */
 class DoNotEndTheSubjectLineWithAPeriodStatus implements Status
 {
@@ -28,7 +26,7 @@ class DoNotEndTheSubjectLineWithAPeriodStatus implements Status
     }
 
     /**
-     * A human readable message that describes this state
+     * A human readable message that describes this state.
      *
      * This will be displayed to the user via the GitHub state
      *
@@ -40,9 +38,9 @@ class DoNotEndTheSubjectLineWithAPeriodStatus implements Status
     }
 
     /**
-     * Is true if the status is one that should not be taken as indicative of a incorrectly formatted message
+     * Is true if the status is one that should not be taken as indicative of a incorrectly formatted message.
      *
-     * @return boolean
+     * @return bool
      */
     public function isPositive() : bool
     {
@@ -50,12 +48,12 @@ class DoNotEndTheSubjectLineWithAPeriodStatus implements Status
     }
 
     /**
-     * Get a URL with further explanation about this commit message status
+     * Get a URL with further explanation about this commit message status.
      *
      * @return string
      */
     public function getDetailsUrl() : string
     {
-        return "http://chris.beams.io/posts/git-commit/#end";
+        return 'http://chris.beams.io/posts/git-commit/#end';
     }
 }

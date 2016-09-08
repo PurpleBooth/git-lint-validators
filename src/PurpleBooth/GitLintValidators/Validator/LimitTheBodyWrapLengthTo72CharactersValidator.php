@@ -1,26 +1,23 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace PurpleBooth\GitLintValidators\Validator;
 
 use PurpleBooth\GitLintValidators\Message;
 use PurpleBooth\GitLintValidators\Status\LimitTheBodyWrapLengthTo72CharactersStatus;
-use PurpleBooth\GitLintValidators\Status\SuccessStatus;
 
 /**
- * This validator will check the body width is 72 characters wide at the most
+ * This validator will check the body width is 72 characters wide at the most.
  *
  * @see     LimitTheBodyWrapLengthTo72CharactersStatus
- *
- * @package PurpleBooth\GitLintValidators\Validator
  */
 class LimitTheBodyWrapLengthTo72CharactersValidator implements Validator
 {
     const WRAP_LIMIT = 72;
 
     /**
-     * Check if a message passes a specific test, and return a status that identifies if it is or isn't
+     * Check if a message passes a specific test, and return a status that identifies if it is or isn't.
      *
      * @param Message $message
      */
