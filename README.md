@@ -75,8 +75,8 @@ Options:
   -v|vv|vvv, --verbose               Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 
 Help:
- Check your commit messages to ensure they follow the guidelines
- in your add this to your .git/hooks/commit-msg file
+ Check your commit messages to ensure they follow the guidelines described by Chris Beams.
+ To enable the Git hook in your project run 'composer install-git-hook.'
 
 
  Here are some good articles on commit message style:

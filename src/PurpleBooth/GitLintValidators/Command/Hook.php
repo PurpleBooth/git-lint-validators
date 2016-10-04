@@ -34,8 +34,8 @@ class Hook extends Command
         $this->setDescription('Check the style of commit messages');
 
         $help = '';
-        $help .= "Check your commit messages to ensure they follow the guidelines\n";
-        $help .= "in your add this to your .git/hooks/commit-msg file\n";
+        $help .= "Check your commit messages to ensure they follow the guidelines described by Chris Beams.\n";
+        $help .= "To enable the Git hook in your project run 'composer install-git-hook.'\n";
         $help .= "\n";
         $help .= "\n";
         $help .= "Here are some good articles on commit message style:\n";
