@@ -57,7 +57,7 @@ CONTENT;
         $hookContent = self::HOOK_CONTENTS;
         $inputOutput = $event->getIO();
         $question = 'Do you want to install and activate the Git ';
-        $question   .= 'commit message hook? ';
+        $question .= 'commit message hook? ';
 
         if ($inputOutput->askConfirmation($question, false)) {
             $errorMessage = "Couldn't locate the .git directory. ";
@@ -115,7 +115,7 @@ CONTENT;
         $templateContent = self::TEMPLATE_CONTENTS;
         $inputOutput = $event->getIO();
         $question = 'Do you want to install and configure the Git ';
-        $question       .= 'commit message template? ';
+        $question .= 'commit message template? ';
 
         if ($inputOutput->askConfirmation($question, false)) {
             $errorMessage = "Couldn't locate the .git directory. ";
