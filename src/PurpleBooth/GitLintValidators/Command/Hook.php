@@ -31,7 +31,7 @@ class Hook extends Command
     protected function configure()
     {
         $this->setName(self::COMMAND_NAME);
-        $this->setDescription('Check the style of commit messages');
+        $this->setDescription('Checks the style of commit messages');
 
         $help = '';
         $help .= "Check your commit messages to ensure they follow the guidelines\n";
