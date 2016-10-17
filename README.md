@@ -1,3 +1,5 @@
+> This package is abandoned and no longer maintained. The author suggests using the [sebastianfeldmann/captainhook](https://github.com/sebastianfeldmann/captainhook) package instead.
+
 # Git Lint
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PurpleBooth/git-lint-validators/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PurpleBooth/git-lint-validators/?branch=master)
