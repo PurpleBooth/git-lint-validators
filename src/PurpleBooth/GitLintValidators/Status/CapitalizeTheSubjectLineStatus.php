@@ -27,7 +27,7 @@ class CapitalizeTheSubjectLineStatus implements Status
      *
      * @return int
      */
-    public function getWeight() : int
+    public function getWeight(): int
     {
         return Status::WEIGHT_ERROR;
     }
@@ -39,7 +39,7 @@ class CapitalizeTheSubjectLineStatus implements Status
      *
      * @return string
      */
-    public function getMessage() : string
+    public function getMessage(): string
     {
         return 'Please capitalise the subject line of the commit message';
     }
@@ -49,7 +49,7 @@ class CapitalizeTheSubjectLineStatus implements Status
      *
      * @return bool
      */
-    public function isPositive() : bool
+    public function isPositive(): bool
     {
         return false;
     }
@@ -59,7 +59,7 @@ class CapitalizeTheSubjectLineStatus implements Status
      *
      * @return string
      */
-    public function getDetailsUrl() : string
+    public function getDetailsUrl(): string
     {
         return 'http://chris.beams.io/posts/git-commit/#capitalize';
     }

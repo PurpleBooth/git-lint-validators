@@ -28,7 +28,7 @@ class ValidatorFactoryImplementation implements ValidatorFactory
      *
      * @return ValidateMessage
      */
-    public function getMessageValidator() : ValidateMessage
+    public function getMessageValidator(): ValidateMessage
     {
         $messageValidator = new ValidateMessageImplementation(
             [
