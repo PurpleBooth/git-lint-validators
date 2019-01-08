@@ -28,8 +28,11 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class Hook extends Command
 {
     const COMMAND_NAME = 'git-lint-validator:hook';
+
     const ARGUMENT_COMMIT_MESSAGE_FILE = 'commit-message-file';
+
     const OPTION_COMMENT_CHAR = 'comment-char';
+
     const OPTION_IGNORE = 'ignore';
 
     /**
@@ -128,7 +131,6 @@ class Hook extends Command
 
             $isPositive = $status->isPositive() && $isPositive;
         }
-
 
         if ($isPositive) {
             return 0;

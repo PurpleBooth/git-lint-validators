@@ -43,14 +43,14 @@ class MessageImplementation implements Message
      *
      * @return bool
      */
-    public function isTitleCapitalised() : bool
+    public function isTitleCapitalised(): bool
     {
-        if ($this->getTitleLength() == 0) {
+        if (0 == $this->getTitleLength()) {
             return false;
         }
 
-        return strtoupper($this->commitMessage[0]){0}
-        === $this->commitMessage[0][0];
+        return $this->commitMessage[0][0]
+        === strtoupper($this->commitMessage[0]){0};
     }
 
     /**
@@ -58,7 +58,7 @@ class MessageImplementation implements Message
      *
      * @return int
      */
-    public function getTitleLength() : int
+    public function getTitleLength(): int
     {
         return strlen($this->commitMessage[0]);
     }
@@ -68,15 +68,15 @@ class MessageImplementation implements Message
      *
      * @return bool
      */
-    public function hasTitleAFullStop() : bool
+    public function hasTitleAFullStop(): bool
     {
-        if ($this->getTitleLength() == 0) {
+        if (0 == $this->getTitleLength()) {
             return false;
         }
 
         $lastCharacter = trim($this->commitMessage[0]){$this->getTitleLength() - 1};
 
-        return $lastCharacter == '.';
+        return '.' == $lastCharacter;
     }
 
     /**
@@ -84,13 +84,13 @@ class MessageImplementation implements Message
      *
      * @return bool
      */
-    public function hasBlankLineAfterTitle() : bool
+    public function hasBlankLineAfterTitle(): bool
     {
         if (count($this->commitMessage) < 2) {
             return false;
         }
 
-        return $this->commitMessage[1] == '';
+        return '' == $this->commitMessage[1];
     }
 
     /**
@@ -114,7 +114,7 @@ class MessageImplementation implements Message
      *
      * @return int
      */
-    public function getBodyWrapLength() : int
+    public function getBodyWrapLength(): int
     {
         if (count($this->commitMessage) < 3) {
             return 0;
@@ -147,7 +147,7 @@ class MessageImplementation implements Message
      *
      * @return Status[]
      */
-    public function getStatuses() : array
+    public function getStatuses(): array
     {
         return $this->statuses;
     }

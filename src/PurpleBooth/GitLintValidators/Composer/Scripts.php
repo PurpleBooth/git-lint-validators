@@ -17,9 +17,13 @@ use Composer\Script\Event;
 class Scripts
 {
     const BACKUP_EXTENSION = '.bak';
+
     const GIT_PATH = '.git';
+
     const HOOKS_PATH = 'hooks';
+
     const HOOK_FILENAME = 'commit-msg';
+
     const TEMPLATE_FILENAME = '.gitmessage';
 
     /**
@@ -30,6 +34,7 @@ class Scripts
      * Other: Execute
      */
     const EXECUTABLE_PERMISSIONS = 0751;
+
     const HOOK_CONTENTS = <<<'CONTENT'
 #!/bin/sh
 
@@ -72,7 +77,7 @@ CONTENT;
 
             $gitDirectory = self::getGuardedGitDirectory($errorMessage, $inputOutput);
 
-            if ($gitDirectory === false) {
+            if (false === $gitDirectory) {
                 return false;
             }
 
@@ -130,7 +135,7 @@ CONTENT;
 
             $gitDirectory = self::getGuardedGitDirectory($errorMessage, $inputOutput);
 
-            if ($gitDirectory === false) {
+            if (false === $gitDirectory) {
                 return false;
             }
 

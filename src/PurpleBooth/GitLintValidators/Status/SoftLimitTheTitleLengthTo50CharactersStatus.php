@@ -27,7 +27,7 @@ class SoftLimitTheTitleLengthTo50CharactersStatus implements Status
      *
      * @return int
      */
-    public function getWeight() : int
+    public function getWeight(): int
     {
         return Status::WEIGHT_WARN;
     }
@@ -39,7 +39,7 @@ class SoftLimitTheTitleLengthTo50CharactersStatus implements Status
      *
      * @return string
      */
-    public function getMessage() : string
+    public function getMessage(): string
     {
         return 'Looks good, but can you shorten the subject of the commit message to 50 characters or less?';
     }
@@ -49,7 +49,7 @@ class SoftLimitTheTitleLengthTo50CharactersStatus implements Status
      *
      * @return bool
      */
-    public function isPositive() : bool
+    public function isPositive(): bool
     {
         return true;
     }
@@ -61,7 +61,7 @@ class SoftLimitTheTitleLengthTo50CharactersStatus implements Status
      *
      * @return string
      */
-    public function getState() : string
+    public function getState(): string
     {
         return Status::STATE_SUCCESS;
     }
@@ -71,7 +71,7 @@ class SoftLimitTheTitleLengthTo50CharactersStatus implements Status
      *
      * @return string
      */
-    public function getDetailsUrl() : string
+    public function getDetailsUrl(): string
     {
         return 'http://chris.beams.io/posts/git-commit/#limit-50';
     }

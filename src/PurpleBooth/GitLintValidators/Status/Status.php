@@ -17,11 +17,15 @@ namespace PurpleBooth\GitLintValidators\Status;
 interface Status
 {
     const WEIGHT_ERROR = 100;
+
     const WEIGHT_WARN = 50;
+
     const WEIGHT_OTHER_ERRORS = 25;
+
     const WEIGHT_SUCCESS = 0;
 
     const STATE_SUCCESS = 'success';
+
     const STATE_FAILURE = 'failure';
 
     /**
@@ -31,14 +35,14 @@ interface Status
      *
      * @return int
      */
-    public function getWeight() : int;
+    public function getWeight(): int;
 
     /**
      * Is true if the status is one that should not be taken as indicative of a incorrectly formatted message.
      *
      * @return bool
      */
-    public function isPositive() : bool;
+    public function isPositive(): bool;
 
     /**
      * A human readable message that describes this state.
@@ -47,12 +51,12 @@ interface Status
      *
      * @return string
      */
-    public function getMessage() : string;
+    public function getMessage(): string;
 
     /**
      * Get a URL with further explanation about this commit message status.
      *
      * @return string
      */
-    public function getDetailsUrl() : string;
+    public function getDetailsUrl(): string;
 }

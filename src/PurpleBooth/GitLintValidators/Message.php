@@ -23,42 +23,42 @@ interface Message
      *
      * @return bool
      */
-    public function isTitleCapitalised() : bool;
+    public function isTitleCapitalised(): bool;
 
     /**
      * Get the title length.
      *
      * @return int
      */
-    public function getTitleLength() : int;
+    public function getTitleLength(): int;
 
     /**
      * Title ends with a full stop.
      *
      * @return bool
      */
-    public function hasTitleAFullStop() : bool;
+    public function hasTitleAFullStop(): bool;
 
     /**
      * Has a gap after the title.
      *
      * @return bool
      */
-    public function hasBlankLineAfterTitle() : bool;
+    public function hasBlankLineAfterTitle(): bool;
 
     /**
      * Has this message got a body.
      *
      * @return bool
      */
-    public function hasABody() : bool;
+    public function hasABody(): bool;
 
     /**
      * The length at which the message wraps.
      *
      * @return int
      */
-    public function getBodyWrapLength() : int;
+    public function getBodyWrapLength(): int;
 
     /**
      * Associate a status with this message.
@@ -72,5 +72,5 @@ interface Message
      *
      * @return Status[]
      */
-    public function getStatuses() : array;
+    public function getStatuses(): array;
 }

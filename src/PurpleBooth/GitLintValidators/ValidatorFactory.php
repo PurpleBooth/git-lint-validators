@@ -21,5 +21,5 @@ interface ValidatorFactory
      *
      * @return ValidateMessage
      */
-    public function getMessageValidator() : ValidateMessage;
+    public function getMessageValidator(): ValidateMessage;
 }
